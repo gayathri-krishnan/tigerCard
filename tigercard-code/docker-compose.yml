@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mongoDB:
+    image: mongo:3.4.9-jessie
+    container_name: 'tc-mongo'
+    hostname: 'tc-mongo'
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/log
+      MONGO_INITDB_DATABASE: tc-db
+    ports:
+      - '27017:27017'
+    volumes:
+      - '~/Tmp/docker/mongodb/data:/data/tc-db'
+    labels:
+      NAME: 'mongodb'
